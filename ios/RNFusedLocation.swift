@@ -149,6 +149,11 @@ class RNFusedLocation: RCTEventEmitter {
     useSignificantChanges
       ? locationManager.stopMonitoringSignificantLocationChanges()
       : locationManager.stopUpdatingLocation()
+    
+    locationManager.desiredAccuracy = DEFAULT_ACCURACY
+    locationManager.distanceFilter = 100
+    
+    locationManager.startUpdatingLocation()
 
     observing = false
   }
